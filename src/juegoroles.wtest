@@ -1,0 +1,54 @@
+import elementos.*
+import armas.*
+import jugadoresPersonajes.*
+
+test "ataques y trabajos en castillo" {
+
+	floki.encontrar(castillo)
+	assert.equals(146,castillo.nivelDeDefensa())
+	assert.that(ballesta.estaCargada())
+	mario.encontrar(castillo)
+	assert.equals(166,castillo.nivelDeDefensa())
+	assert.that(mario.esFeliz())
+}
+	
+test "ataques y trabajos en tipa" {
+	
+	floki.encontrar(tipa)
+	assert.equals(8,tipa.alturaMts())
+	mario.encontrar(tipa)
+	assert.equals(9,tipa.alturaMts())
+	assert.notThat(mario.esFeliz())
+	mario.encontrar(tipa)	
+	mario.encontrar(tipa)
+	assert.equals(11,tipa.alturaMts())
+	assert.that(mario.esFeliz())			
+}
+
+test "trabajo en aurora"{
+	mario.encontrar(aurora)
+	assert.that(aurora.estaViva())
+
+}
+
+test "ataque masivo castillo y gastos en armas"{
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)	
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	floki.encontrar(castillo)
+	assert.notThat(ballesta.estaCargada())
+	assert.equals(110,castillo.nivelDeDefensa())
+	mario.encontrar(castillo)
+	mario.encontrar(castillo)
+	mario.encontrar(castillo)
+	mario.encontrar(castillo)
+	mario.encontrar(castillo)	
+	assert.that(mario.esFeliz())
+	assert.equals(200,castillo.nivelDeDefensa())			
+}
