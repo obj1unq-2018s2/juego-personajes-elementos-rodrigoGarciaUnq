@@ -26,14 +26,15 @@ object floki {
 object mario {
 	var valorRecolectado = 0
 	var esFeliz = false
+	var ultimoElementoEncontrado 
 	
 	method encontrar(elemento) {
 	    valorRecolectado += elemento.valorQueOtorga()
 	    elemento.recibirTrabajo()
-	    if (valorRecolectado>49 || elemento.alturaMts() > 9) {esFeliz = true}
+	    ultimoElementoEncontrado = elemento
 	}
 	
-	method esFeliz(){return esFeliz}
+	method esFeliz(){return (valorRecolectado>49) || (ultimoElementoEncontrado.alturaMts() > 9)}
 }
 
 
