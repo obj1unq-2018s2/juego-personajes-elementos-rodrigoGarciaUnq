@@ -12,6 +12,7 @@ object castillo{
 	method recibirTrabajo(){
 		if (nivelDefensa<180){nivelDefensa += 20}
 		else {nivelDefensa = 200}
+	 // if nivelDefensa=(nivelDefensa + 20).min(200)	
 	}
 
 }
